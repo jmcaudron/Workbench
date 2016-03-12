@@ -32,7 +32,7 @@ class Page {
 }
 
 $GLOBALS["MENUS"] = array(
-    'WORKBENCH' => array(
+    'WORKBENCH by JMC' => array(
         'login.php'           => new Page('Login','Logs into your Salesforce organization.',false,true,true,false,false,''),
         'select.php'          => new Page('Select','Select action to which to jump.',true,true,false,false,false,''),
         'settings.php'        => new Page('Settings','Configuration for Workbench.',false,true,true,false,true,''),
