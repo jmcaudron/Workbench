@@ -18,17 +18,17 @@
 // If connecting to other Salesforce environments, add a new entry to the array:
 //
 $config["oauthConfigs"]["default"] = array(
-                                            "login.salesforce.com" => array(
-                                                "label" => "Production",
-                                                "key" => "-",
-                                                "secret" => "-"
-                                            ),
                                             "test.salesforce.com" => array(
                                                 "label" => "Sandbox",
                                                 "key" => "3MVG954MqIw6FnnPDk6JLrA_r.gWH7KmhwGV9p1wUYwzrCEX39P2h04bSVQcNLiPcWLe7X2bkFFhJs99.B8ak",
                                                 "secret" => "6662333418566706428"
                                             )
-                                        );
+                                            "login.salesforce.com" => array(
+                                                "label" => "Production",
+                                                "key" => "-",
+                                                "secret" => "-"
+                                            ),
+										);
 
 
 // CSRF SECURITY SETTINGS
