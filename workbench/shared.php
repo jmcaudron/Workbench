@@ -456,7 +456,7 @@ function displayInfo($infos) {
 }
 
 function getWorkbenchUserAgent() {
-    return "Workbench by jmc/" . str_replace(" ", "_", trim($GLOBALS["WORKBENCH_VERSION"]));
+    return "Workbench/" . str_replace(" ", "_", trim($GLOBALS["WORKBENCH_VERSION"]));
 }
 
 /**
