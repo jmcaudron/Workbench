@@ -245,7 +245,7 @@ function displayUploadFileWithObjectSelectionForm($action, $id = null, $warning 
     if ($action !== "retrieve") {
         print "<tr><td style='width: 10em;'><label><input type='radio' id='sourceType_file' name='sourceType' value='file'/>From File</label></td>\n" .
               "<td><input type='file' name='file' size='44' onchange='document.getElementById(\"sourceType_file\").checked=true;' />\n" .
-              "<input type='hidden' name='MAX_FILE_SIZE' value='" . WorkbenchConfig::get()->value("maxFileSize") . "' /></td></tr>\n";
+              "<input  name='MAX_FILE_SIZE' value='" . WorkbenchConfig::get()->value("maxFileSize") . "' /></td></tr>\n";
     }
 
     print "<tr><td colspan='2'><br/><input type='submit' name='action' value='Next' /></td></tr>\n";
