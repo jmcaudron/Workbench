@@ -332,7 +332,7 @@ function queryAsync($queryRequest) {
     header("Location: asyncStatus.php?jobId=" . $job->getId());
 }
 
-function displayErrorBeforeForm($msg) {
+function displayErrorBefobulkreForm($msg) {
     include_once("header.php");
     print "<p>";
     displayError($msg);

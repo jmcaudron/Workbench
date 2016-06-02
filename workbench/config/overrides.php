@@ -25,8 +25,8 @@ $config["oauthConfigs"]["default"] = array(
                                             ),
                                             "login.salesforce.com" => array(
                                                 "label" => "Production",
-                                                "key" => "-",
-                                                "secret" => "-"
+                                                "key" => "3MVG954MqIw6FnnPDk6JLrA_r.gWH7KmhwGV9p1wUYwzrCEX39P2h04bSVQcNLiPcWLe7X2bkFFhJs99.B8ak",
+                                                "secret" => "6662333418566706428"
                                             )
 										);
 
