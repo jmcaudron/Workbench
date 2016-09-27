@@ -22,12 +22,13 @@ $config["oauthConfigs"]["default"] = array(
                                                 "label" => "Sandbox",
                                                 "key" => "3MVG9Rd3qC6oMalUbYarZz2EnoWjPxCasC3fLftobL.4H0crapAuzOk9X0kvkuNLH8jkoZLW9.9DRZ_5nOAzd",
                                                 "secret" => "3080277406341997702"
-                                           )//,
-//                                            "login.salesforce.com" => array(
-//                                                "label" => "Production",
-//                                                "key" => "",
-//                                                "secret" => ""
-//                                            )
+												
+                                           ),
+                                            "login.salesforce.com" => array(
+                                                "label" => "Production",
+                                                "key" => "3MVG9Rd3qC6oMalUbYarZz2EnoWjPxCasC3fLftobL.4H0crapAuzOk9X0kvkuNLH8jkoZLW9.9DRZ_5nOAzd",
+                                                "secret" => "3080277406341997702"
+                                           )
                                         );
 
 
