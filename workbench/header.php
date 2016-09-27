@@ -13,7 +13,7 @@
         <?php
         $myPage = getMyPage();
         $title = $myPage->showTitle ? ": " . $myPage->title : "";
-        print "<title>Workbench by JMC : $title</title>"; //JMC
+        print "<title>Workbench$title</title>";
 
         print "<script type='text/javascript'>var getPathToStaticResource = " . getPathToStaticResourceAsJsFunction() . ";</script>";
         ?>
@@ -144,8 +144,7 @@ if (isLoggedIn() && termsOk()) {
                       "User Id:&nbsp;" . substr($userInfo->userId, 0, 15));
 
     print "<td id='myUserInfo'><a href='sessionInfo.php' onmouseover=\"Tip('". implode("<br/>", $infoTips) ."')\" >" .
-           //JMC changes : htmlspecialchars($userInfo->userFullName . " at " . $userInfo->organizationName) . " on API " . WorkbenchContext::get()->getApiVersion() . "</a></td>";
-		   htmlspecialchars($userInfo->userName . " at " . $userInfo->organizationName) . " on API " . WorkbenchContext::get()->getApiVersion() . "</a></td>";
+           htmlspecialchars($userInfo->userFullName . " at " . $userInfo->organizationName) . " on API " . WorkbenchContext::get()->getApiVersion() . "</a></td>";
 }
 print "</tr></table>";
 

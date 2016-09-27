@@ -16,19 +16,19 @@
 // Uncomment and populate with keys and secrets to enable OAuth.
 // Note, Production and Sandbox can have the same key and secret, but it is not required
 // If connecting to other Salesforce environments, add a new entry to the array:
-//JMC changes Production
+//JMC : Add 
 $config["oauthConfigs"]["default"] = array(
                                             "test.salesforce.com" => array(
                                                 "label" => "Sandbox",
                                                 "key" => "3MVG9Rd3qC6oMalUbYarZz2EnoWjPxCasC3fLftobL.4H0crapAuzOk9X0kvkuNLH8jkoZLW9.9DRZ_5nOAzd",
                                                 "secret" => "3080277406341997702"
-                                            )/*,
-                                            "login.salesforce.com" => array(
-                                                "label" => "Production",
-                                                "key" => "3MVG954MqIw6FnnPDk6JLrA_r.gWH7KmhwGV9p1wUYwzrCEX39P2h04bSVQcNLiPcWLe7X2bkFFhJs99.B8ak",
-                                                "secret" => "6662333418566706428"
-                                            )*/
-										);
+                                           )//,
+//                                            "login.salesforce.com" => array(
+//                                                "label" => "Production",
+//                                                "key" => "",
+//                                                "secret" => ""
+//                                            )
+                                        );
 
 
 // CSRF SECURITY SETTINGS
@@ -43,5 +43,6 @@ $config["oauthConfigs"]["default"] = array(
 //
 // $config["orgIdWhiteList"]["default"] = "00D000000000001, 00D000000000002";
 // $config["orgIdBlackList"]["default"] = "00D000000000003";
+
 
 ?>
