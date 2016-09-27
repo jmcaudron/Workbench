@@ -1,6 +1,13 @@
 <?php
 require_once "util/ExpandableTree.php";
 
+function disallowDoctype($xmlString) {
+    if (stripos(substr($xmlString, 0, 1000), '!DOCTYPE') !== FALSE) {
+        throw new WorkbenchHandledException("XML DOCTYPE declaration not allowed.");
+    }
+    return $xmlString;
+}
+
 function verifyCallingFromCLI() {
     if (php_sapi_name() != 'cli') {
         throw new Exception('Illegal invocation. Should only be called from CLI.');
@@ -225,7 +232,7 @@ function printAsyncRefreshBlock() {
                  "<span id='refreshSpinner' style='display:none;'>&nbsp;<img src='" . getPathToStaticResource('/images/wait16trans.gif') . "' align='absmiddle'/></span>" .
                  "<span id='refreshInTimer' style='display:inline;'>in $refreshInterval seconds" .
                  "</span></div>";
-        print "<script>setTimeout('document.getElementById(\'refreshInTimer\').style.display=\'none\'; document.getElementById(\'refreshSpinner\').style.display=\'inline\'; window.location.href=\'$newUrl\'', $refreshInterval * 1000);</script>";
+        print "<script>setTimeout('document.getElementById(\'refreshInTimer\').style.display=\'none\'; document.getElementById(\'refreshSpinner\').style.display=\'inline\'; window.location.href=" . json_encode($newUrl) . "', $refreshInterval * 1000);</script>";
     } else {
         print "<input type='button' onclick='window.location.href=window.location.href;' value='Refresh' style='float:right;'/>";
     }
@@ -564,7 +571,7 @@ function natcaseksort($array) {
 
 
 function addLinksToIds($inputStr) {
-    $idMatcher = "/\b(\w{4}000\w{11})\b/";
+    $idMatcher = "/\b(\w{5}000\w{10})\b/";
     $uiHref = "href='" . getJumpToSfdcUrlPrefix() . "$1' target='sfdcUi' ";
 
     $dmlTip = "";
@@ -636,9 +643,12 @@ function in_arrayi($needle, $haystack) {
  */
 function prettyPrintXml($xml, $htmlOutput=FALSE) {
     try {
-        $xmlObj = new SimpleXMLElement($xml);
+        libxml_disable_entity_loader(true);
+        $xmlObj = new SimpleXMLElement(disallowDoctype($xml));
     } catch (Exception $e) {
         return $xml;
+    } finally {
+        libxml_disable_entity_loader(false);
     }
 
     $xmlLines = explode("

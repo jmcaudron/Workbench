@@ -270,11 +270,13 @@ $config["header_LoginOptions"] = array(
             "cs16" => array("Sandbox: CS16","f"),
             "cs17" => array("Sandbox: CS17","g"),
             "prerelna1.pre" => array("Pre-Release: NA1","t"),
-            "mobile1.t" => array("Mobile 1","")
+            "mobile1.t" => array("Mobile 1",""),
+            "mobile2.t" => array("Mobile 2","")
         )
     );
 
     $GLOBALS['API_VERSIONS'] = array(
+        "37.0" => "37.0",
         "36.0" => "36.0",
         "35.0" => "35.0",
         "34.0" => "34.0",
@@ -310,7 +312,7 @@ $config["header_LoginOptions"] = array(
     $config["defaultApiVersion"]  = array(
         "label" => "Default API Version",
         "description" => "Default API version to be used for login. This setting does not affect the API version of the current session. Recommended to choose latest version. Some features may act unexpectedly when using older versions.",
-        "default" => "36.0",
+        "default" => "37.0",
         "overrideable" => true,
         "dataType" => "picklist",
         "valuesToLabels" => $GLOBALS['API_VERSIONS']
@@ -319,7 +321,7 @@ $config["header_LoginOptions"] = array(
     $config["useSfdcFrontdoor"] = array(
         "label" => "Pass Session to Salesforce",
         "description" => "When jumping from Workbench to Salesforce, should Workbench pass its session id to Salesforce. Automatic will only use pass the session if the Salesforce session is not likely set.",
-        "default" => "AUTO",
+        "default" => "NEVER",
         "overrideable" => true,
         "dataType" => "picklist",
         "valuesToLabels" => array(
@@ -532,6 +534,15 @@ $config["header_DataManagement"] = array(
             "Parallel" => "Parallel",
             "Serial" => "Serial"
          )
+    );
+
+    $config["streamingV2Enabled"]  = array(
+        "label" => "Streaming V2",
+        "description" => "Enables client to use Streaming V2 endpoint and exposes options to subscribe to previous events.",
+        "default" => true,
+        "overrideable" => true,
+        "dataType" => "boolean",
+        "minApiVersion" => 37.0
     );
 
 $config["header_queryAndSearchOptions"] = array(
@@ -760,7 +771,7 @@ $config["header_Performance"] = array(
     $config["maxFileSize"] = array(
         "label" => "Maximum File Size (bytes)",
         "description" => "Maximum file size for upload in bytes.",
-        "default" => 30000000,
+        "default" => 10000000,
         "overrideable" => false,
         "dataType" => "int",
         "minValue" => 1

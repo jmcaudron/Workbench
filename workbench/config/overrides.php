@@ -16,7 +16,7 @@
 // Uncomment and populate with keys and secrets to enable OAuth.
 // Note, Production and Sandbox can have the same key and secret, but it is not required
 // If connecting to other Salesforce environments, add a new entry to the array:
-//JMC changes Prduction
+//JMC changes Production
 $config["oauthConfigs"]["default"] = array(
                                             "test.salesforce.com" => array(
                                                 "label" => "Sandbox",

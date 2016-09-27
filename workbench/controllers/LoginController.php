@@ -209,20 +209,29 @@ class LoginController {
         return $serverUrl;
     }
 
+    private function isAllowedHost($serverUrl) {
+        $domainWhitelist = array(
+            'salesforce\.com',
+            'vpod\.t\.force\.com',
+            'cloudforce\.com'
+        );
+        foreach ($domainWhitelist as $w) {
+            if (preg_match('/^https?\:\/\/[\w\.\-_]+\.' . $w . '/', $serverUrl)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private function processLogin($username, $password, $serverUrl, $sessionId, $actionJump) {
         if ($username && $password && $sessionId) {
             $this->addError('Provide only username and password OR session id, but not all three.');
             return;
         }
 
-        //block connections to localhost
-        if (stripos($serverUrl,'localhost')) {
-            if (isset($GLOBALS['internal']['localhostLoginError'])) {
-                $this->addError($GLOBALS['internal']['localhostLoginError']);
-            } else {
-                $this->addError("Must not connect to 'localhost'");
-            }
-
+        //block connections to non-sfdc domains
+        if (!$this->isAllowedHost($serverUrl)) {
+            $this->addError("Host must be a Salesforce domain");
             return;
         }
 

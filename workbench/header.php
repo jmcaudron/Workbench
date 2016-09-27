@@ -13,7 +13,7 @@
         <?php
         $myPage = getMyPage();
         $title = $myPage->showTitle ? ": " . $myPage->title : "";
-        print "<title>Workbench by JMC : $title</title>";
+        print "<title>Workbench by JMC : $title</title>"; //JMC
 
         print "<script type='text/javascript'>var getPathToStaticResource = " . getPathToStaticResourceAsJsFunction() . ";</script>";
         ?>
