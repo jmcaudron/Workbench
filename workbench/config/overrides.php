@@ -20,8 +20,8 @@
 $config["oauthConfigs"]["default"] = array(
                                             "test.salesforce.com" => array(
                                                 "label" => "Sandbox",
-                                                "key" => "3MVG954MqIw6FnnPDk6JLrA_r.gWH7KmhwGV9p1wUYwzrCEX39P2h04bSVQcNLiPcWLe7X2bkFFhJs99.B8ak",
-                                                "secret" => "6662333418566706428"
+                                                "key" => "3MVG9Rd3qC6oMalUbYarZz2EnoWjPxCasC3fLftobL.4H0crapAuzOk9X0kvkuNLH8jkoZLW9.9DRZ_5nOAzd",
+                                                "secret" => "3080277406341997702"
                                             )/*,
                                             "login.salesforce.com" => array(
                                                 "label" => "Production",
